@@ -1,0 +1,8 @@
+--- Loaded artifacts ---
+Model expecting: 6
+Scaler expecting: 13
+PCA components: 6
+Created X_new shape: (1, 13)
+Scaled X_new_sc shape: (1, 13)
+PCA X_new_pca shape: (1, 6)
+PREDS: [[17.8591467   2.19427784]]
