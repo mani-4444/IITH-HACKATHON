@@ -9,14 +9,18 @@ const defaultParams = {
   motor_speed: 150,
   compression_force: 30,
   flow_rate: 60,
-  phase: 'Compression',
-  current_power: 35.0 // For feature engineering
+  phase: 'Compression'
 };
 
 const PHASES = [
-  'Preparation', 'Granulation', 'Blending', 
-  'Compression', 'Drying', 'Milling', 
-  'Coating', 'QualityTesting'
+  { value: 'Preparation', label: 'Preparation' },
+  { value: 'Granulation', label: 'Granulation' },
+  { value: 'Blending', label: 'Blending' },
+  { value: 'Compression', label: 'Compression' },
+  { value: 'Drying', label: 'Drying' },
+  { value: 'Milling', label: 'Milling' },
+  { value: 'Coating', label: 'Coating' },
+  { value: 'Quality_Testing', label: 'Quality Testing' }
 ];
 
 export default function BatchInputPanel({ onPredict, loading }) {
@@ -54,7 +58,9 @@ export default function BatchInputPanel({ onPredict, loading }) {
               onChange={(e) => handleChange('phase', e.target.value)}
               className="w-full text-sm p-2 rounded-lg bg-navy-900 border border-slate-700"
             >
-              {PHASES.map(p => <option key={p} value={p}>{p}</option>)}
+              {PHASES.map((p) => (
+                <option key={p.value} value={p.value}>{p.label}</option>
+              ))}
             </select>
           </div>
 
@@ -118,22 +124,13 @@ export default function BatchInputPanel({ onPredict, loading }) {
             />
           </div>
 
-          {/* Flow Rate & Current Power */}
+          {/* Flow Rate */}
           <div>
              <label className="block text-xs font-medium text-slate-300 mb-1.5">Flow Rate (LPM)</label>
              <input
               type="number"
               value={params.flow_rate}
               onChange={(e) => handleChange('flow_rate', Number(e.target.value))}
-              className="w-full text-sm p-2 rounded-lg bg-navy-900 border border-slate-700"
-            />
-          </div>
-          <div>
-             <label className="block text-xs font-medium text-slate-300 mb-1.5">Current Power (kW)</label>
-             <input
-              type="number" step="0.1" title="Used for feature engineering"
-              value={params.current_power}
-              onChange={(e) => handleChange('current_power', Number(e.target.value))}
               className="w-full text-sm p-2 rounded-lg bg-navy-900 border border-slate-700"
             />
           </div>
