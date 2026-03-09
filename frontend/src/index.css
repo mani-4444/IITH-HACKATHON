@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   background-color: #0a1628;
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
@@ -50,18 +50,21 @@ body {
 
 /* Glow effect for key elements */
 .glow-teal {
-  box-shadow: 0 0 15px rgba(20, 184, 166, 0.2),
-              0 0 40px rgba(20, 184, 166, 0.05);
+  box-shadow:
+    0 0 15px rgba(20, 184, 166, 0.2),
+    0 0 40px rgba(20, 184, 166, 0.05);
 }
 
 /* Pulse animation for prediction button */
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
   }
   50% {
-    box-shadow: 0 0 25px rgba(20, 184, 166, 0.5),
-                0 0 50px rgba(20, 184, 166, 0.15);
+    box-shadow:
+      0 0 25px rgba(20, 184, 166, 0.5),
+      0 0 50px rgba(20, 184, 166, 0.15);
   }
 }
 
@@ -71,12 +74,33 @@ body {
 
 /* Smooth number transitions */
 @keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-value {
   animation: countUp 0.6s ease-out;
+}
+
+/* Gradient text for header */
+.gradient-text {
+  background: linear-gradient(90deg, #14b8a6, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring for inputs */
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.25);
 }
 
 /* Gradient text */
