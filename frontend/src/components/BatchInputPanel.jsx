@@ -22,7 +22,6 @@ const PHASES = [
   { value: 'Coating', label: 'Coating' },
   { value: 'Quality_Testing', label: 'Quality Testing' }
   phase: "Compression",
-  current_power: 35.0, // For feature engineering
 };
 
 const demoParams = {
@@ -34,7 +33,6 @@ const demoParams = {
   compression_force: 30,
   flow_rate: 60,
   phase: "Compression",
-  current_power: 35,
 };
 
 const PHASES = [
@@ -204,23 +202,6 @@ export default function BatchInputPanel({ onPredict, loading }) {
               value={params.flow_rate}
               onChange={(e) =>
                 handleChange("flow_rate", Number(e.target.value))
-              }
-              className="w-full text-sm p-2.5 rounded-lg bg-navy-900 border border-slate-700 text-white focus:border-teal-500/50 focus:outline-none transition-colors"
-            />
-          </div>
-
-          {/* Current Power */}
-          <div className="col-span-2">
-            <label className="block text-[11px] font-medium text-slate-400 mb-1.5 uppercase tracking-wide">
-              Current Power (kW)
-            </label>
-            <input
-              type="number"
-              step="0.1"
-              title="Used for feature engineering"
-              value={params.current_power}
-              onChange={(e) =>
-                handleChange("current_power", Number(e.target.value))
               }
               className="w-full text-sm p-2.5 rounded-lg bg-navy-900 border border-slate-700 text-white focus:border-teal-500/50 focus:outline-none transition-colors"
             />
