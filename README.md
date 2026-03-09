@@ -38,6 +38,12 @@ The backend expects these artifact files inside `backend/`:
 - `label_encoder.pkl`
 - `imputer.pkl`
 
+Leakage-free artifact set (preferred when present):
+- `track_a_rf_model_clean.pkl`
+- `scaler_clean.pkl`
+- `pca_clean.pkl`
+- `label_encoder_clean.pkl`
+
 Note: `backend/model.pkl` is intentionally git-ignored because it can exceed GitHub file size limits.
 
 ## Frontend Setup (React + Vite)
@@ -66,10 +72,23 @@ Example request body for `/predict`:
   "motor_speed": 150,
   "compression_force": 30,
   "flow_rate": 60,
-  "phase": "Compression",
-  "current_power": 35.0
+  "phase": "Compression"
 }
 ```
+
+## Retrain Leakage-Free Artifacts
+
+The original notebook-derived pipeline included `Flow_per_Power`, which depends on
+`Power_Consumption_kW` (a target). The clean retraining script removes that leakage.
+
+```bash
+cd backend
+pip install pandas
+python retrain_clean_model.py --csv batch_process_data.csv --out-dir .
+```
+
+After the 4 `*_clean.pkl` files are generated, `backend/app.py` will automatically
+use them for inference.
 
 ## Development Notes
 

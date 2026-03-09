@@ -9,6 +9,18 @@ const defaultParams = {
   motor_speed: 150,
   compression_force: 30,
   flow_rate: 60,
+  phase: 'Compression'
+};
+
+const PHASES = [
+  { value: 'Preparation', label: 'Preparation' },
+  { value: 'Granulation', label: 'Granulation' },
+  { value: 'Blending', label: 'Blending' },
+  { value: 'Compression', label: 'Compression' },
+  { value: 'Drying', label: 'Drying' },
+  { value: 'Milling', label: 'Milling' },
+  { value: 'Coating', label: 'Coating' },
+  { value: 'Quality_Testing', label: 'Quality Testing' }
   phase: "Compression",
   current_power: 35.0, // For feature engineering
 };
@@ -87,6 +99,7 @@ export default function BatchInputPanel({ onPredict, loading }) {
               className="w-full text-sm p-2.5 rounded-lg bg-navy-900 border border-slate-700 text-white focus:border-teal-500/50 focus:outline-none transition-colors"
             >
               {PHASES.map((p) => (
+                <option key={p.value} value={p.value}>{p.label}</option>
                 <option key={p} value={p}>
                   {p}
                 </option>

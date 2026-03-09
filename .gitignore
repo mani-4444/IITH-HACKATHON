@@ -21,3 +21,6 @@ Thumbs.db
 
 # Large model artifact
 backend/model.pkl
+
+backend/track_a_rf_model.pkl
+backend/track_a_rf_model_clean.pkl
