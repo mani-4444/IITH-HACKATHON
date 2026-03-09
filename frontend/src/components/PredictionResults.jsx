@@ -116,22 +116,10 @@ export default function PredictionResults({ results }) {
               : "High"
           : "—",
     },
-    {
-      id: "status",
-      label: "System Status",
-      value: statusLabel,
-      unit: "",
-      icon:
-        statusLevel === "red" || statusLevel === "yellow"
-          ? HiOutlineExclamation
-          : HiOutlineCheckCircle,
-      level: statusLevel,
-      badge: results ? "Live" : "Idle",
-    },
   ];
 
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
       {cards.map((card) => {
         const theme = themeMap[card.level];
         return (

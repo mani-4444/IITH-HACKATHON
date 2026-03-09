@@ -6,7 +6,6 @@ import BatchInputPanel from "./components/BatchInputPanel";
 import PredictionResults from "./components/PredictionResults";
 import EnergyChart from "./components/EnergyChart";
 import CarbonEmission from "./components/CarbonEmission";
-import AIInsight from "./components/AIInsight";
 import ModelMetrics from "./components/ModelMetrics";
 
 const API_URL = "http://localhost:5000";
@@ -67,7 +66,7 @@ export default function App() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-h-screen">
-        <Header backendConnected={backendConnected} />
+        <Header />
 
         <main className="flex-1 p-6 overflow-y-auto">
           {/* Full-screen loading overlay */}
@@ -141,12 +140,7 @@ export default function App() {
               {/* Charts Row */}
               <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 pb-6">
                 <EnergyChart history={history} />
-                <div className="space-y-6 flex flex-col items-stretch">
-                  <CarbonEmission power={results?.power} />
-                  <div className="flex-1">
-                    <AIInsight results={results} inputs={lastInputs} />
-                  </div>
-                </div>
+                <CarbonEmission power={results?.power} />
               </div>
             </div>
           </div>

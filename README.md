@@ -1,6 +1,7 @@
 # IITH Hackathon Project
 
 Full-stack manufacturing prediction dashboard with:
+
 - Flask backend for ML inference
 - React + Vite frontend for interactive input and visualization
 
@@ -32,6 +33,7 @@ Backend runs on `http://127.0.0.1:5000`.
 ### Important Model Files
 
 The backend expects these artifact files inside `backend/`:
+
 - `model.pkl` (or `track_a_rf_model.pkl`)
 - `scaler.pkl`
 - `pca.pkl`
